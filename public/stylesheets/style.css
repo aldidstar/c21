@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+.edit{
+  width: 25px;
+  height: 25px;
+  background-color: green;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.delete{
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.add, .back{
+  width: 35px;
+  height: 25px;
+  background-color: blue;
+  text-decoration: none;
+  color: white;
+  
+  
+}

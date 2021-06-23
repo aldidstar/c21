@@ -6,18 +6,14 @@ var logger = require('morgan');
 
 const { Pool } = require('pg')
 const pool = new Pool({
-  user: 'aldi',
+  user: 'postgres',
   host: 'localhost',
   database: 'bread',
-  password: '12345',
+  password: 'aldi',
   port: 5432,
 })
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  pool.end()
-})
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index')(pool);
 var usersRouter = require('./routes/users');
 
 var app = express();
