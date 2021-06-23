@@ -48,9 +48,9 @@ router.get('/', function(req, res, next) {
   sql = `select * from bread `;
 
   if (params.length > 0) {
-    sql += ` where ${params.join(" and ")}`;
+    sql += `where ${params.join(" and ")}`;
   }
-  sql += `limit $1 offset $2`;
+  sql += `order by id limit $1 offset $2`;
  
   db.query(sql,[limit, offset],(err, data) => {
     if (err) {

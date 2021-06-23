@@ -53,7 +53,7 @@
     <div class="col-sm-10">
       <input
         type="date"
-        value="<%= moment(nama.tanggal).format('MM/DD/YYYY') %>" 
+        value="<%= moment(nama.tanggal).format('YYYY-MM-DD') %>" 
         class="form-control"
         id="Date"
         name="date"
@@ -68,8 +68,8 @@
     <div class="col-sm-10">
         <select type="boolean" id="Status" name="status" >
             <option value="">Choose your choice</option>
-            <option value="true">true</option>
-            <option value="false">false</option>
+            <option value="true"<%= nama.hubungan == true ? ' selected' : '' %>>true</option>
+            <option value="false"<%= nama.hubungan == false ? ' selected' : '' %>>false</option>
           </select>
       
     </div>

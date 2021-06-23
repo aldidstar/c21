@@ -87,8 +87,8 @@
     <div class="col-sm-10">
         <select type="boolean" id="Status" name="status" disabled>
             <option value="">Choose your choice</option>
-            <option value="true"<%= query.status == 'true' ? ' selected' : '' %>>true</option>
-            <option value="false"<%= query.status == 'false' ? ' selected' : '' %>>false</option>
+            <option value="true"<%= query.status == true ? ' selected' : '' %>>true</option>
+            <option value="false"<%= query.status == false ? ' selected' : '' %>>false</option>
           </select>
       
     </div>
@@ -114,11 +114,11 @@
     </tr>
     <% nama.forEach((item, index) => { %>
     <tr class="genap">
-      <td><%= index + 1 %></td>
+      <td><%= item.id %></td>
       <td><%= item.nama %></td>
       <td><%= item.berat %></td>
       <td><%= item.tinggi %></td>
-      <td><%= moment(item.tanggal).format('MM/DD/YYYY') %></td>
+      <td><%= moment(item.tanggal).format('D MMMM YYYY') %></td>
       <td><%= item.hubungan %></td>
       <td>
         <a class="btn btn-success" href="/edit/<%= item.id %>">edit</a>
