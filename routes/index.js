@@ -18,11 +18,11 @@ router.get('/', function(req, res, next) {
   }
 
   if (weight) {
-    params.push(`berat ilike '%${weight}%'`);
+    params.push(`berat = ${weight}`);
   }
 
   if (height) {
-    params.push(`tinggi ilike '%${height}%'`);
+    params.push(`tinggi = ${height}`);
   }
   
   if (start && end) {
@@ -41,17 +41,17 @@ router.get('/', function(req, res, next) {
     if (err) {
       return res.send(err)
     }
-
+    
     const total = data.rows[0].total
     const pages = Math.ceil(total/limit)
-
-  sql = `select * from bread `;
-
-  if (params.length > 0) {
-    sql += `where ${params.join(" and ")}`;
-  }
-  sql += `order by id limit $1 offset $2`;
- 
+    
+    sql = `select * from bread `;
+    
+    if (params.length > 0) {
+      sql += `where ${params.join(" and ")}`;
+    }
+    sql += `order by id limit $1 offset $2`;
+    
   db.query(sql,[limit, offset],(err, data) => {
     if (err) {
       return res.send(err)
