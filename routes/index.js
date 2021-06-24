@@ -14,15 +14,15 @@ router.get('/', function(req, res, next) {
 
   let params = [];
   if (name) {
-    params.push(`nama like '%${name}%'`);
+    params.push(`nama ilike '%${name}%'`);
   }
 
   if (weight) {
-    params.push(`berat like '%${weight}%'`);
+    params.push(`berat ilike '%${weight}%'`);
   }
 
   if (height) {
-    params.push(`tinggi like '%${height}%'`);
+    params.push(`tinggi ilike '%${height}%'`);
   }
   
   if (start && end) {
